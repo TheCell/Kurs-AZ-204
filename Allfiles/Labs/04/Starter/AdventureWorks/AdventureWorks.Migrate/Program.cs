@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 public class Program
 {
-    private const string sqlDBConnectionString = "Server=tcp:polysqlsrvrsimon.database.windows.net,1433;Initial Catalog=AdventureWorks;Persist Security Info=False;User ID=testuser;Password=TestPa55w.rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-    private const string cosmosDBConnectionString = "AccountEndpoint=https://polycosmossimon.documents.azure.com:443/;AccountKey=NxYwH4H1Bt0RaiPyqtJ7nCJhbFtBqlu9cSYBDgVTMn0XOL5j80z7W09F0IA0drADN5in84OQfzWCvmVff4IRfA==;";
+    private const string sqlDBConnectionString = "";
+    private const string cosmosDBConnectionString = "";
 
     public static async Task Main(string[] args)
     {
