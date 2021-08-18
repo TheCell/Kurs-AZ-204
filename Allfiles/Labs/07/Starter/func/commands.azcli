@@ -1,0 +1,32 @@
+cd Allfiles/Labs/07/Starter/func
+
+func init --worker-runtime dotnet --force
+
+dotnet build
+
+func new --template "HTTP trigger" --name "FileParser"
+
+func start --build
+
+# parallel terminal
+httprepl http://localhost:7071
+
+cd api
+
+cd fileparser
+
+get
+
+exit
+
+# close all terminals
+
+az login
+
+func azure functionapp publish securefuncsimon
+
+dotnet add package Azure.Storage.Blobs --version 12.6.0
+
+func azure functionapp publish securefuncsimon
+
+az group delete --name ConfidentialStack --no-wait --yes
