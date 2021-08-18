@@ -1,0 +1,25 @@
+cd Allfiles/Labs/01/Starter/
+
+az login
+
+az webapp list --resource-group ManagedPlatform
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')]"
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
+
+cd API
+
+az webapp deployment source config-zip --resource-group ManagedPlatform --src api.zip --name imgapisimon
+
+az webapp list --resource-group ManagedPlatform
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')]"
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')].{Name:name}" --output tsv
+
+cd ../Web
+
+az webapp deployment source config-zip --resource-group ManagedPlatform --src web.zip --name imgwebsimon
+
+az group delete --name ManagedPlatform --no-wait --yes

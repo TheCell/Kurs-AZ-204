@@ -1,0 +1,35 @@
+cd Allfiles/Labs/04/Starter/AdventureWorks/
+
+dotnet build
+
+cd AdventureWorks.Web/
+
+dotnet run
+
+cd ..
+
+dotnet new console --name AdventureWorks.Migrate
+
+dotnet add .\AdventureWorks.Migrate\AdventureWorks.Migrate.csproj reference .\AdventureWorks.Models\AdventureWorks.Models.csproj
+
+dotnet add .\AdventureWorks.Migrate\AdventureWorks.Migrate.csproj reference .\AdventureWorks.Context\AdventureWorks.Context.csproj
+
+cd AdventureWorks.Migrate/
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.1
+
+dotnet add package Microsoft.Azure.Cosmos --version 3.4.1
+
+dotnet build
+
+dotnet run
+
+cd ../AdventureWorks.Context/
+
+dotnet build
+
+cd ../AdventureWorks.Web/
+
+dotnet run
+
+az group delete --name PolyglotData --no-wait --yes

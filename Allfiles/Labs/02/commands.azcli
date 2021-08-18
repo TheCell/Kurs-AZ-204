@@ -1,0 +1,59 @@
+cd Allfiles/Labs/02/Starter/func/
+
+func init --worker-runtime dotnet --force
+
+dotnet build
+
+func new --template "HTTP trigger" --name "Echo"
+
+func start --build
+
+# separate terminal
+
+httprepl http://localhost:7071
+
+cd api
+
+cd echo
+
+post --content 3
+
+post --content 5
+
+post --content "Hello"
+
+post --content "{"msg": "Successful"}"
+
+exit
+
+# close terminal, switch to first 
+
+func new --template "Timer trigger" --name "Recurring"
+
+func start --build
+
+func new --template "HTTP trigger" --name "GetSettingInfo"
+
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.4
+
+dotnet build
+
+func start --build
+
+# separate terminal
+
+httprepl http://localhost:7071
+
+cd api
+
+cd getsettinginfo
+
+get
+
+exit
+
+# close terminal, switch to first 
+
+func azure functionapp publish funclogicsimon
+
+az group delete --name Serverless --no-wait --yes
