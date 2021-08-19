@@ -1,0 +1,11 @@
+cd Allfiles/Labs/10/Starter/MessageProcessor
+
+dotnet new console --name MessageProcessor --output .
+
+dotnet add package Azure.Storage.Queues --version 12.0.0
+
+dotnet build
+
+dotnet run
+
+az group delete --name AsyncProcessor --no-wait --yes
