@@ -1,0 +1,11 @@
+cd Allfiles/Labs/09/Starter/EventPublisher
+
+dotnet new console --name EventPublisher --output .
+
+dotnet add package Azure.Messaging.EventGrid --version 4.1.0
+
+dotnet build
+
+dotnet run
+
+az group delete --name PubSubEvents --no-wait --yes

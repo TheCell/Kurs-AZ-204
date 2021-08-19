@@ -2,3 +2,6 @@
 *
 # Except this file
 !.gitignore
+!commands.azcli
+!EventPublisher.csproj
+!Program.cs
