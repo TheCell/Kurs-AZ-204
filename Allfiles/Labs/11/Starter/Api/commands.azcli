@@ -1,0 +1,30 @@
+cd Allfiles/Labs/11/Starter/Api
+
+dotnet new webapi --output . --name SimpleApi
+
+dotnet add package Microsoft.ApplicationInsights --version 2.14.0
+
+dotnet add package Microsoft.ApplicationInsights.AspNetCore --version 2.14.0
+
+dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector  --version 2.14.0
+
+dotnet build
+
+dotnet run
+
+# new terminal
+cd Allfiles/Labs/11/Starter/Api
+
+az login
+
+az webapp list --resource-group MonitoredAssets
+
+az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')]"
+
+az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')].{Name:name}" --output tsv
+
+cd ..
+
+az webapp deployment source config-zip --resource-group MonitoredAssets --src api.zip --name smpapisimon
+
+az group delete --name MonitoredAssets --no-wait --yes
